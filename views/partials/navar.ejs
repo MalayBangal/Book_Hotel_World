@@ -1,0 +1,63 @@
+<header class="header-area">
+    <div class="search-form d-flex align-items-center">
+        <div class="container">
+            <form action="/hotels/search" method="get">
+                <input type="search" name="search" id="searchFormInput" placeholder="Type your keyword ...">
+                <button type="submit"><i class="icon_search"></i></button>
+            </form>
+        </div>
+    </div>
+    <div class="main-header-area">
+        <div class="classy-nav-container breakpoint-off">
+            <div class="container">
+                <nav class="classy-navbar justify-content-between" id="robertoNav">
+                    <a class="nav-brand" href="/"><img style="width: 12rem;" src="/img/core-img/logo-1.png"
+                            alt=""></a>
+                    <div class="classy-navbar-toggler">
+                        <span class="navbarToggler"><span></span><span></span><span></span></span>
+                    </div>
+                    <div class="classy-menu">
+                        <div class="classycloseIcon">
+                            <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
+                        </div>
+                        <div class="classynav">
+                            <ul id="nav">
+                                <li class="<%= page==='Home'?'active':'' %>"><a href="/">Home</a></li>
+                                <li class="<%= page.includes('Hotel')?'active':'' %>"><a href="/hotels">Hotels</a>
+                                </li>
+                                <li class="<%= page.includes('Contact')?'active':'' %>"><a
+                                        href="/contact">Contact</a></li>
+                                <% if (currentUser) { %>
+                                <li><a>User Panel</a>
+                                    <ul class="dropdown">
+                                        <li><a><%= currentUser.name %></a></li>
+                                        <li><a href="/logout">Logout</a></li>
+                                    </ul>
+                                </li>
+                                <% } else { %>
+                                <li class="<%= page==='Login'?'active':'' %>"><a href="/login">Login</a></li>
+                                <li class="<%= page==='Register'?'active':'' %>"><a href="/register">Register</a>
+                                </li>
+                                <% } %>
+                            </ul>
+                            <div class="search-btn ml-4">
+                                <i class="fa fa-search" aria-hidden="true"></i>
+                            </div>
+                            <% if (currentUser) { %>
+                            <div class="book-now-btn ml-3 ml-lg-5">
+                                <a href="/hotels/new">Add a hotel <i class="fa fa-long-arrow-right"
+                                        aria-hidden="true"></i></a>
+                            </div>
+                            <% } else { %>
+                            <div class="book-now-btn ml-3 ml-lg-5">
+                                <a href="/hotels">Book Now <i class="fa fa-long-arrow-right"
+                                        aria-hidden="true"></i></a>
+                            </div>
+                            <% } %>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>

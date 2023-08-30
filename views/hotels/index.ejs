@@ -1,6 +1,6 @@
 <%- include('../partials/header.ejs') %>
 <%- include('../partials/navbar.ejs') %>
-<h1>Index page</h1>
+<!-- <h1>Index page</h1>
 <div class="container">
     <div class="row mt-5">
         <% for(let hotel of hotels) { %>
@@ -15,6 +15,129 @@
             </div>
         </div>
         <% } %>
+    </div>
+</div> -->
+<div class="breadcrumb-area bg-img bg-overlay jarallax" style="background-image: url(/img/bg-img/16.jpg);">
+    <div class="container h-100">
+        <div class="row h-100 align-items-center">
+            <div class="col-12">
+                <div class="breadcrumb-content text-center">
+                    <h2 class="page-title">Hotel Listing</h2>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb justify-content-center">
+                            <li class="breadcrumb-item"><a href="/">Home</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Hotels</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="roberto-rooms-area section-padding-100-0">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-lg-8">
+                <% for( let hotel of hotels ) { %>
+                <div class="single-room-area d-flex align-items-center mb-50 wow fadeInUp" data-wow-delay="100ms">
+                    <div class="room-thumbnail">
+                        <img src="<%= hotel.image[0] %>" alt="">
+                    </div>
+                    <div class="room-content">
+                        <h2><%= hotel.name %></h2>
+                        <h4>₹ <%= hotel.price %> <span>/ Day</span></h4>
+                        <div class="room-feature">
+                            <h6>Posted: <span><%= moment(hotel.createdAt).fromNow() %></span></h6>
+                            <h6>Rating: <span><%= hotel.overAllRating %></span></h6>
+                            <h6>Upvotes: <span><%= hotel.upvotes.length %></span></h6>
+                            <h6>Reviews: <span><%= hotel.reviews.length %></span></h6>
+                        </div>
+                        <a href="/hotels/<%= hotel._id %>" class="btn view-detail-btn">View Details <i
+                                class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
+                    </div>
+                </div>
+                <% } %>
+               
+            </div>
+            <div class="col-12 col-sm-8 col-md-6 col-lg-4">
+                <div class="roberto-sidebar-area pl-md-4">
+                    <div class="single-widget-area mb-100">
+                        <div class="newsletter-form">
+                            <h5>Newsletter</h5>
+                            <p>Subscribe our newsletter gor get notification new updates.</p>
+                            <form action="#" method="post">
+                                <input type="email" name="nl-email" id="nlEmail" class="form-control"
+                                    placeholder="Enter your email...">
+                                <button type="submit" class="btn roberto-btn w-100">Subscribe</button>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="single-widget-area mb-100">
+                        <h4 class="widget-title mb-30">Featured Hotels</h4>
+                        <div class="single-recent-post d-flex">
+                            <div class="post-thumb">
+                                <a href="/hotels/6472bf1e4cb68e4b5432b7f2"><img src="/img/bg-img/60.jpg" alt=""></a>
+                            </div>
+                            <div class="post-content">
+                                <div class="post-meta">
+                                    <a class="post-author">₹ 30,000</a>
+                                    <a class="post-tutorial">Udaipur</a>
+                                </div>
+                                <a href="/hotels/6472bf1e4cb68e4b5432b7f2" class="post-title">Taj Lake Palace</a>
+                            </div>
+                        </div>
+                        <div class="single-recent-post d-flex">
+                            <div class="post-thumb">
+                                <a href="/hotels/6472c0854cb68e4b5432b841"><img src="/img/bg-img/59.jpg" alt=""></a>
+                            </div>
+                            <div class="post-content">
+                                <div class="post-meta">
+                                    <a class="post-author">₹ 12,000</a>
+                                    <a class="post-tutorial">Mumbai</a>
+                                </div>
+                                <a href="/hotels/6472c0854cb68e4b5432b841" class="post-title">The St. Regis</a>
+                            </div>
+                        </div>
+                        <div class="single-recent-post d-flex">
+                            <div class="post-thumb">
+                                <a href="/hotels/6472c18e4cb68e4b5432b861"><img src="/img/bg-img/58.jpg" alt=""></a>
+                            </div>
+                            <div class="post-content">
+                                <div class="post-meta">
+                                    <a class="post-author">₹ 35,000</a>
+                                    <a class="post-tutorial">Agra</a>
+                                </div>
+                                <a href="/hotels/6472c18e4cb68e4b5432b861" class="post-title">The Oberoi Amarvilas</a>
+                            </div>
+                        </div>
+                        <div class="single-recent-post d-flex">
+                            <div class="post-thumb">
+                                <a href="/hotels/6472c2304cb68e4b5432b881"><img src="/img/bg-img/57.jpg" alt=""></a>
+                            </div>
+                            <div class="post-content">
+                                <div class="post-meta">
+                                    <a class="post-author">₹ 40,000</a>
+                                    <a class="post-tutorial">Shimla</a>
+                                </div>
+                                <a href="/hotels/6472c2304cb68e4b5432b881" class="post-title">Wildflower Hall</a>
+                            </div>
+                        </div>
+                        <div class="single-recent-post d-flex">
+                            <div class="post-thumb">
+                                <a href="/hotels/6472c2b84cb68e4b5432b8a1"><img src="/img/bg-img/56.jpg" alt=""></a>
+                            </div>
+                            <div class="post-content">
+                                <div class="post-meta">
+                                    <a class="post-author">₹ 14,000</a>
+                                    <a class="post-tutorial">Delhi</a>
+                                </div>
+                                <a href="/hotels/6472c2b84cb68e4b5432b8a1" class="post-title">The Imperial</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 <%- include('../partials/footer.ejs') %>
